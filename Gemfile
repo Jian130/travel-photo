@@ -6,6 +6,7 @@ gem 'rails', '3.1.0.rc5'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'devise'
 
 
 # Gems used only for assets and not required
@@ -26,6 +27,10 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+group :development do
+  gem 'rspec-rails'
+end
 
 group :test do
   # Pretty printed test output
