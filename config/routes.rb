@@ -1,4 +1,24 @@
 Travelphoto::Application.routes.draw do
+  
+  #TODO: change sessions url to login all the time
+
+  get "logout" => "sessions#destroy", :as => :logout
+  get "login" => "sessions#new", :as => :login
+  get "signup" => "authentications#new", :as => :signup
+  get "register" => "users#new", :as => :register
+
+  #get "/auth/twitter", :as => :twitter_login
+  match "/auth/:provider/callback" => "authentications#create"
+  match "/auth/failure" => "authentications#failure"
+  
+  #scope 'users' do
+    resource :users, :path => 'register'
+  #end
+  
+  #resource :users
+  resource :sessions
+  
+  root :to => "authentications#new"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
