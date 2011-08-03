@@ -17,6 +17,7 @@ Travelphoto::Application.routes.draw do
   
   #resource :users
   resource :sessions
+  resource :profiles
   
   root :to => "authentications#new"
   # The priority is based upon order of creation:

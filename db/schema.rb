@@ -10,12 +10,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110801055024) do
+ActiveRecord::Schema.define(:version => 20110803072027) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
     t.string   "provider"
     t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "username"
+    t.integer  "place_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "hometown"
+    t.string   "timezone"
+    t.string   "locale"
+    t.string   "bio"
+    t.integer  "private"
+    t.integer  "score"
+    t.integer  "rank"
+    t.boolean  "disable"
+    t.integer  "countries_count"
+    t.integer  "cities_count"
+    t.integer  "photos_count"
+    t.integer  "followers_count"
+    t.integer  "followings_count"
+    t.integer  "activities_count"
+    t.integer  "notifications_count"
+    t.string   "web"
+    t.string   "facebook"
+    t.string   "twitter"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
