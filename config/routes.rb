@@ -12,12 +12,16 @@ Travelphoto::Application.routes.draw do
   match "/auth/failure" => "authentications#failure"
   
   #scope 'users' do
-    resource :users, :path => 'register'
+  resource :users do #, :path => 'register'
+    member do
+      get :following, :followers
+    end
+  end
   #end
   
   #resource :users
   resource :sessions
-  resource :profiles
+  resource :profiles, :only => [:show, :edit, :update, :destroy]
   
   root :to => "authentications#new"
   # The priority is based upon order of creation:

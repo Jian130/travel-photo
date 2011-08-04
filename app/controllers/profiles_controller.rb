@@ -12,10 +12,12 @@ class ProfilesController < ApplicationController
     @profile = current_user.profile
   end
 
-  def create
-  end
-
   def update
+    if current_user.profile.update_attributes(params[:profile])
+      flash[:notice] = "Successfully updated profile."
+    else
+      render "edit"
+    end
   end
 
   def destroy

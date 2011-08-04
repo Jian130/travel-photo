@@ -9,12 +9,30 @@ class User < ActiveRecord::Base
   
   has_many :authentications
   has_one :profile
+  has_many :relationships, :foreign_key => "follower_id", :dependent => :destroy
+  has_many :following, :through => :relationships, :source => :followed
+  has_many :reverse_relationships, :foreign_key => "followed_id",
+                                   :class_name => "Relationship",
+                                   :dependent => :destroy
+  has_many :followers, :through => :reverse_relationships, :source => :follower
   
   before_create :create_profile
   
   def apply_omniauth(omniauth)
     self.email = omniauth['user_info']['email'] if email.blank?
     authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
+  end
+  
+  def following?(followed)
+    self.relationships.find_by_followed_id(followed)
+  end
+  
+  def follow!(followed)
+    self.relationships.create!(:followed_id => followed.id)
+  end  
+  
+  def unfollow!(followed)
+    self.relaionships.find_by_followed_id(followed).destroy
   end
   
   private
