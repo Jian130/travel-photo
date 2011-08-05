@@ -29,10 +29,14 @@ class User < ActiveRecord::Base
   
   def follow!(followed)
     self.relationships.create!(:followed_id => followed.id)
+    Profile.increment_counter(:followings_count, self.profile.id)
+    Profile.increment_counter(:followers_count, User.find_by_id(followed.id).profile.id)
   end  
   
   def unfollow!(followed)
-    self.relaionships.find_by_followed_id(followed).destroy
+    self.relationships.find_by_followed_id(followed).destroy
+    Profile.decrement_counter(:followers_count, User.find_by_id(followed.id).profile.id)
+    Profile.decrement_counter(:followings_count, self.profile.id)
   end
   
   private
