@@ -1,5 +1,19 @@
 Travelphoto::Application.routes.draw do
   
+  get "comments/index"
+
+  get "comments/show"
+
+  get "comments/new"
+
+  get "comments/create"
+
+  get "comments/edit"
+
+  get "comments/update"
+
+  get "comments/destroy"
+
   #TODO: change sessions url to login all the time
 
   get "logout" => "sessions#destroy", :as => :logout
