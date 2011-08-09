@@ -1,0 +1,5 @@
+<ul>
+<% @posts.each do |post| %>
+	<li><%= image_tag post.photos.first.image.square %> <%= post.message %></li>
+<% end %>
+</ul>

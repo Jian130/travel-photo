@@ -25,6 +25,9 @@ Travelphoto::Application.routes.draw do
   match "/auth/:provider/callback" => "authentications#create"
   match "/auth/failure" => "authentications#failure"
   
+  match "/posts/upload" => "posts#upload", :as => "preview"
+  match "/home" => "posts#index"
+  
   #scope 'users' do
   resource :users do #, :path => 'register'
     member do
@@ -35,6 +38,8 @@ Travelphoto::Application.routes.draw do
   
   #resource :users
   resource :sessions
+  resource :posts
+  resource :photo, :only => [:show, :destroy]
   resource :profiles, :only => [:show, :edit, :update, :destroy]
   
   root :to => "authentications#new"

@@ -10,6 +10,12 @@ gem 'sqlite3'
 gem 'omniauth'
 gem 'cancan'
 
+gem 'mini_magick'
+gem 'exifr'
+gem 'carrierwave'
+gem 'flash_cookie_session' # needed for uploadify
+gem 'geocoder'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
