@@ -1,0 +1,48 @@
+<% key = Rails.application.config.session_options[:key] %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	var upload_params = {
+	      '<%= key %>' : '<%= cookies[key] %>',
+	      '<%= request_forgery_protection_token %>' : ('<%= form_authenticity_token %>'),
+	      '_http_accept': 'application/javascript',
+	'method':'put'
+	    };
+	    $('#file_upload').uploadify({
+	      'uploader'     : '/uploadify.swf',
+	      'script'       : "<%= url_for(:controller => 'posts', :action => 'upload') %>",
+	      'fileDataName' : 'preview',
+	      'fileExt'      : '*.jpeg;*.jpg;*.png',
+	      'cancelImg'    : '/images/cancel.png',
+	      'multi'        : false,
+	      'scriptData'   : upload_params,
+	      'auto'         : true,
+		  'onError'	: function(event,ID,fileObj,errorObj) { console.log(errorObj); console.log(request.getResponseHeader('location'));},
+	      'onComplete'   : function(e, id, obj, response, data) {
+		console.log(response);
+			enable_create_form(response);
+	      }
+	    });
+});
+
+function enable_create_form(response) {
+	var image = $('#upload-image');
+	var place = $('#place');
+	var photo = $('#attachment');
+	var data = $.parseJSON(response);
+	image.attr('src', data.preview);
+	place.val(data.latitude + ', ' + data.longitude);
+	photo.val(data.url);
+	$('#post_message').focus();
+}
+</script>
+<input id="file_upload" name="file_upload" type="file" />
+<%= form_for @post do |f| -%>
+	
+	<%= image_tag "upload-default.png", {:id => 'upload-image' } %>
+	<%= hidden_field_tag :attachment %>
+	<%= f.text_field :message %>
+	<%= text_field_tag :place %>
+	<%= f.submit "Post", :disable_with => 'Posting...' %>
+  
+<% end -%>
