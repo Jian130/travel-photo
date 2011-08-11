@@ -1,5 +1,7 @@
 Travelphoto::Application.routes.draw do
   
+  get "likes/create"
+
   get "comments/index"
 
   get "comments/show"
