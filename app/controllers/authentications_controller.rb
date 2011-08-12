@@ -3,7 +3,7 @@ class AuthenticationsController < ApplicationController
   end
 
   def create
-	raise request.env["omniauth.auth"].to_yaml
+	#raise request.env["omniauth.auth"].to_yaml
     omniauth = request.env["omniauth.auth"]
     auth = Authentication.find_by_provider_and_uid(omniauth["provider"], omniauth["uid"])
     if auth

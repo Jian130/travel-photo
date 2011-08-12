@@ -20,8 +20,9 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :photos
   
-  before_create :create_profile
+  #before_create :create_profile
   
+  #TODO: insert extra information to user profile from external provider
   def apply_omniauth(omniauth)
     self.email = omniauth['user_info']['email'] if email.blank?
     authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
@@ -45,7 +46,7 @@ class User < ActiveRecord::Base
   
   private
   
-    def create_profile
-      self.build_profile
-    end
+    # def create_profile
+    #   self.build_profile
+    # end
 end

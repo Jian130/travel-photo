@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   
+  def index
+  end
+  
   def show
     @user = User.find_by_id(params[:id])
   end
@@ -10,6 +13,8 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
+    @user.create_profile(params[:user][:profile])
+    
     if session[:omniauth]
       @user.apply_omniauth(session[:omniauth])
       @user.valid?
