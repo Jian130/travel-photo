@@ -1,0 +1,28 @@
+<h2><%= link_to @location.name, @location.link %></h2>
+<p><%= @location.vicinity %></p>
+<ul>
+	<li><%= @location.address %></li>
+	<li><%= @location.phone %></li>
+</ul>
+	<script type="text/javascript"
+	    src="http://maps.googleapis.com/maps/api/js?sensor=true">
+	</script>
+	<script type="text/javascript">
+	  $(function () {
+	    var latlng = new google.maps.LatLng(<%= @location.latitude %>, <%= @location.longitude %>);
+	    var myOptions = {
+	      zoom: 15,
+	      center: latlng,
+	      mapTypeId: google.maps.MapTypeId.ROADMAP
+	    };
+	    var map = new google.maps.Map(document.getElementById("map"),
+	        myOptions);
+	
+		    var marker = new google.maps.Marker({
+		        position: latlng, 
+		        map: map,
+		        title: "<%= @location.name %>"
+		    });
+	  });
+	</script>
+	<div id="map" style="width: 500px; height: 200px;"></div>

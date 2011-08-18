@@ -1,24 +1,10 @@
-# == Schema Information
-# Schema version: 20110705080745
-#
-# Table name: posts
-#
-#  id         :integer         not null, primary key
-#  photo      :string(255)
-#  message    :string(255)
-#  user_id    :integer
-#  place_id   :integer
-#  time       :datetime
-#  created_at :datetime
-#  updated_at :datetime
-#
-
 class Post < ActiveRecord::Base
   
   attr_accessible :message
   
   belongs_to :user
   has_many :photos
+  belongs_to :location, :counter_cache => true
   
   #acts_as_taggable
   

@@ -17,32 +17,49 @@ $(document).ready(function() {
 	      'multi'        : false,
 	      'scriptData'   : upload_params,
 	      'auto'         : true,
-		  'onError'	: function(event,ID,fileObj,errorObj) { console.log(errorObj); console.log(request.getResponseHeader('location'));},
 	      'onComplete'   : function(e, id, obj, response, data) {
-		console.log(response);
 			enable_create_form(response);
 	      }
 	    });
+	
+	var autocomplete = '<%= url_for(:controller => 'locations', :action => 'autocomplete') %>';
+	var position = ''
+	var result_format = function (item) {
+		return '<li data-id=' + item.reference + ' data-name=' + item.name + '><strong>' + item.name + '</strong><p>' + item.description + '</p></li>';
+	};
+	
+	$('#location').GeolocationSearch(autocomplete, {
+		onLocation: function () { return position; }
+	});
+	
+	function enable_create_form(response) {
+		var image = $('#upload-image');
+		var place = $('#location');
+		var photo = $('#attachment');
+		var data = $.parseJSON(response);
+		image.attr('src', data.preview);
+		position =  (data.latitude)? data.latitude + ',' + data.longitude : '';
+		photo.val(data.url);
+		$('#post_message').focus();
+		
+		$.get(autocomplete, {'ll': position}, function (data) {
+			var number_to_add = 5;
+			var number_to_override = 2;
+			for (;number_to_add > 0; number_to_add--) {
+				 $('#location').GeolocationSearch('add', data[number_to_add])
+							   .GeolocationSearch('select', 0);	
+			}
+		});
+	}
 });
 
-function enable_create_form(response) {
-	var image = $('#upload-image');
-	var place = $('#place');
-	var photo = $('#attachment');
-	var data = $.parseJSON(response);
-	image.attr('src', data.preview);
-	place.val(data.latitude + ', ' + data.longitude);
-	photo.val(data.url);
-	$('#post_message').focus();
-}
 </script>
 <input id="file_upload" name="file_upload" type="file" />
 <%= form_for @post do |f| -%>
-	
 	<%= image_tag "upload-default.png", {:id => 'upload-image' } %>
 	<%= hidden_field_tag :attachment %>
 	<%= f.text_field :message %>
-	<%= text_field_tag :place %>
+	<%= text_field_tag :location %>
 	<%= f.submit "Post", :disable_with => 'Posting...' %>
   
 <% end -%>

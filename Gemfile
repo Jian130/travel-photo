@@ -15,6 +15,7 @@ gem 'exifr'
 gem 'carrierwave'
 gem 'flash_cookie_session' # needed for uploadify
 gem 'geocoder'
+gem 'httparty'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -42,6 +43,7 @@ group :development do
   # gem 'autotest-rails-pure'
   # gem 'autotest-fsevent'
   # gem 'autotest-growl'
+  gem 'arel', '2.1.4' # there are bugs in 2.1.5 
 end
 
 group :test do
