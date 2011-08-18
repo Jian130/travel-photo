@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   #before_filter :authenticate_user!
   
   def index
-    @posts = Post.find(:all, :include => :photos)
+    @posts = Post.find(:all, :include => [:location, :photos])
   end
   
   def new
@@ -36,6 +36,12 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(params[:post])
     photo = @post.photos.build(:user => current_user)
     photo.image.download!(request.env['HTTP_ORIGIN'] + params[:attachment])
+    
+    if params[:location].present?
+      ref = params[:location].split('|') # format: {id}|{reference}
+      location = Location.find_by_google_id(ref[0]) || Location.create(:reference => ref[1])
+      @post.location = location
+    end
     
     if @post.save
       flash[:success] = "Post created!"

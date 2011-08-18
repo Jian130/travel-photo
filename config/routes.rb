@@ -10,7 +10,8 @@ Travelphoto::Application.routes.draw do
   match "/auth/failure" => "authentications#failure"
   match "/posts/upload" => "posts#upload", :as => "preview"
   match "/home" => "posts#index"
-  
+  match '/locations/autocomplete' => 'locations#autocomplete'
+
   #scope 'users' do
   # resource :users do #, :path => 'register'
   #   member do
@@ -24,8 +25,9 @@ Travelphoto::Application.routes.draw do
   resource :translations
   resource :comments
   resource :sessions
-  resource :posts
-  resource :photo, :only => [:show, :destroy]
+  resources :locations, :only => [:show]
+  resources :posts
+  #resource :photo, :only => [:show, :destroy]
   resource :profiles, :only => [:show, :edit, :update, :destroy]
   
   root :to => "pages#home"

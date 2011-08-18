@@ -1,5 +1,7 @@
-<ul>
+<ul
 <% @posts.each do |post| %>
-	<li><%= image_tag post.photos.first.image.square %> <%= post.message %></li>
+	<li><%= image_tag post.photos.first.image.square %> <%= post.message %>
+		<p>Taken at: <%= link_to post.location.name, post.location if post.location %></p></li>
+		
 <% end %>
 </ul>

@@ -5,3 +5,6 @@
  *= require_self
  *= require_tree . 
 */
+.geolocation-highlighted { border: 1px solid red;}
+.geolocation-selected { border: 1px solid green;}
+	.to ken-input-dropdown { position: relative !important; }

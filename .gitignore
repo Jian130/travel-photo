@@ -6,5 +6,7 @@ log/*.log
 doc/
 *.swp
 *~
+/public/previews/
+/public/uploads/
 .project
 .DS_Store
