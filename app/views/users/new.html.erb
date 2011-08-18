@@ -18,7 +18,7 @@
   <% end %>
   
   <div class="field">
-    <%= f.label :password %><br/>
+    <%= f.label :password %> <%= t('option') if session[:omniauth] %><br/>
     <%= f.password_field :password %>
   </div>
 

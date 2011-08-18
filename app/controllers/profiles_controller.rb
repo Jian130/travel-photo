@@ -2,10 +2,7 @@ class ProfilesController < ApplicationController
   #load_and_authorize_resource :through => :user
   
   def show
-    @profile = Profile.new
-  end
-
-  def new
+   @profile = current_user.profile
   end
   
   def edit

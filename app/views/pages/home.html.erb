@@ -1,0 +1,7 @@
+<% if signin? %>
+  
+<% else %>
+  <p><%= render 'authentications/external_providers'%></p>
+  <p> <%= link_to t('signin'), signin_path %></p>
+  <p> <%= link_to t('signup'), register_path %> </p>
+<% end %>

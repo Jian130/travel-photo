@@ -39,5 +39,8 @@ module Travelphoto
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    
+    
+    #config.middleware.use Rack::NotFound.new("/path/to/404.html")
   end
 end

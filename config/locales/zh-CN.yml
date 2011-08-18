@@ -1,0 +1,12 @@
+zh-CN:
+  hello: "你好"
+  
+  signin: "登录"
+  signup: "注册"
+  signout: "退出"
+
+  auth:
+    twitter: "用Twitter登录"
+    facebook: "用facebook登录"
+    
+    success: "登录成功"

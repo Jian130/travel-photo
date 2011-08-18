@@ -7,24 +7,24 @@ class AuthenticationsController < ApplicationController
     omniauth = request.env["omniauth.auth"]
     auth = Authentication.find_by_provider_and_uid(omniauth["provider"], omniauth["uid"])
     if auth
-      login(auth.user)
-      flash[:notice] = "Signed in successfully!"
+      signin(auth.user)
+      flash[:notice] = t'auth.success'
       redirect_to root_path
     elsif current_user
       current_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
-      flash[:notice] = "Authentication successful."
+      flash[:notice] = t'auth.success'
       redirect_to root_path
     else
-      user = User.new
-      user.apply_omniauth(omniauth)
+      #user = User.new
+      #user.apply_omniauth(omniauth)
     
-      if user.save
-        flash[:notice] = "Signed in successfully!"
-        redirect_to root_path
-      else
+      #if user.save
+        #flash[:notice] = t'auth.success'
+        #redirect_to root_path
+      #else
         session[:omniauth] = omniauth.except('extra')
         redirect_to register_path
-      end
+      #end
     end
   end
 

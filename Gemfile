@@ -15,6 +15,7 @@ gem 'exifr'
 gem 'carrierwave'
 gem 'flash_cookie_session' # needed for uploadify
 gem 'geocoder'
+gem 'redis'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -38,6 +39,7 @@ gem 'jquery-rails'
 group :development do
   gem 'rspec-rails'
   gem 'annotate'
+  gem "arel", "2.1.4"
   # gem 'autotest'
   # gem 'autotest-rails-pure'
   # gem 'autotest-fsevent'

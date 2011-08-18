@@ -1,50 +1,35 @@
 Travelphoto::Application.routes.draw do
-  
-  get "likes/create"
-
-  get "comments/index"
-
-  get "comments/show"
-
-  get "comments/new"
-
-  get "comments/create"
-
-  get "comments/edit"
-
-  get "comments/update"
-
-  get "comments/destroy"
-
   #TODO: change sessions url to login all the time
 
-  get "logout" => "sessions#destroy", :as => :logout
-  get "login" => "sessions#new", :as => :login
+  get "signout" => "sessions#destroy", :as => :signout
+  get "signin" => "sessions#new", :as => :signin
   get "signup" => "authentications#new", :as => :signup
   get "register" => "users#new", :as => :register
 
-  #get "/auth/twitter", :as => :twitter_login
   match "/auth/:provider/callback" => "authentications#create"
   match "/auth/failure" => "authentications#failure"
-  
   match "/posts/upload" => "posts#upload", :as => "preview"
   match "/home" => "posts#index"
   
   #scope 'users' do
-  resource :users do #, :path => 'register'
-    member do
-      get :following, :followers
-    end
-  end
+  # resource :users do #, :path => 'register'
+  #   member do
+  #     get :following, :followers
+  #   end
+  # end
   #end
   
-  #resource :users
+  resources :users, :only => [:index, :show]
+  resource :likes, :only => [:create]
+  resource :translations
+  resource :comments
   resource :sessions
   resource :posts
   resource :photo, :only => [:show, :destroy]
   resource :profiles, :only => [:show, :edit, :update, :destroy]
   
-  root :to => "authentications#new"
+  root :to => "pages#home"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
