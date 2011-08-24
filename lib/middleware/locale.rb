@@ -11,7 +11,8 @@ require 'i18n'
       locale = nil
 
       # http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4
-      if lang = env["HTTP_ACCEPT_LANGUAGE"]
+      if !env["HTTP_ACCEPT_LANGUAGE"].nil?
+        lang = env["HTTP_ACCEPT_LANGUAGE"]
         lang = lang.split(",").map { |l|
           l += ';q=1.0' unless l =~ /;q=\d+\.\d+$/
           l.split(';q=')
@@ -25,7 +26,7 @@ require 'i18n'
       #locale = env['rack.locale'] = 
       I18n.locale = locale.to_s
       status, headers, body = @app.call(env)
-      headers['Content-Language'] = locale
+      #headers['Content-Language'] = locale
       #I18n.locale = old_locale
       [status, headers, body]
     end

@@ -10,3 +10,9 @@ zh-CN:
     facebook: "用facebook登录"
     
     success: "登录成功"
+  
+  following: "粉丝"
+  follower: "关注"
+  post: "贴子"
+  submit: "提交"
+  like: "喜欢"

@@ -5,6 +5,11 @@ class PostsController < ApplicationController
     @posts = Post.find(:all, :include => [:location, :photos])
   end
   
+  def show
+	@post = Post.find(params[:id])
+	@comments = @post.comments
+  end
+  
   def new
     @post = Post.new
     #3.times { @post.photos.build }
@@ -53,8 +58,4 @@ class PostsController < ApplicationController
 
   def edit
   end
-
-  def show
-  end
-  
 end

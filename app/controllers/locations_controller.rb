@@ -6,7 +6,8 @@ class LocationsController < ApplicationController
   def autocomplete
     #ip = request.location
     logger.info params[:ll]
-    ll = params[:ll] || Geocoder.search('205.250.126.197').first.coordinates.join(',')
+    #ll = params[:ll] || 
+	ll = Geocoder.search('205.250.126.197').first.coordinates.join(',')
     radius = params[:ll]? 300 : 2000000
     render :json => Location.new.suggestions(params[:q], ll)
   end

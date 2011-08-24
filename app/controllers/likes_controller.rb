@@ -4,7 +4,7 @@ class LikesController < ApplicationController
     @like = @likeable.likes.build(params[:like])
     
     if @like.save
-      render :json => @likeaable.likes.count
+      render :json => @likeable.likes.count
     end
     # if @like.save
     #   render :json => @likeaable.likes.count

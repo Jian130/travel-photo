@@ -6,7 +6,13 @@ class UsersController < ApplicationController
   
   def show
     #@user = User.find_by_id(params[:id], :include => :profile)
-    @user = current_user || User.find_by_id(params[:id], :include => :profile)
+    if params[:username]
+      @profile = Profile.find_by_username(params[:username])
+      @posts = @profile.user.photos
+    else
+      @user = current_user || User.find_by_id(params[:id], :include => :profile)
+      @posts = @user.posts
+    end
   end
   
   def new
@@ -28,11 +34,16 @@ class UsersController < ApplicationController
     
     if @user.save
       session[:omniauth] = nil
-      login(@user)
-      redirect_to root_url, :notice => t('signup')
+      signin(@user)
+      redirect_to user_path(current_user), :notice => t('signup')
     else
       render "new"
     end
-    
+  end
+  
+  def following
+  end
+  
+  def followers
   end
 end

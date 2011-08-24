@@ -1,0 +1,9 @@
+%ul.comments
+  = @comments.each do |c|
+    %li= c.content
+
+.comment_form
+  = form_for [commentable, Comment.new] do |f|
+    = f.label :content
+    = f.text_area :content
+    = f.submit t('submit')

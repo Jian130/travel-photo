@@ -1,0 +1,4 @@
+.like_count= likeable.likes.count
+.like_form
+  = form_for [likeable, Like.new] do |f|
+    = f.submit t('like')

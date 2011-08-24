@@ -1,0 +1,10 @@
+%ul
+  - @posts.each do |p|
+    %li
+      %a{:href => post_path(p)}
+        = image_tag p.photos.first.image.square
+        = p.message
+      %p 
+        Taken at:
+        = link_to p.location.name, p.location if p.location
+      = render "likes/like_form", :likeable => p

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110809085346) do
+ActiveRecord::Schema.define(:version => 20110822071555) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(:version => 20110809085346) do
     t.string   "content"
     t.integer  "commentable_id"
     t.string   "commentable_type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "likes", :force => true do |t|
+    t.integer  "likeable_id"
+    t.string   "likeable_type"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -94,6 +102,7 @@ ActiveRecord::Schema.define(:version => 20110809085346) do
     t.string   "twitter"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "posts_count"
   end
 
   create_table "relationships", :force => true do |t|

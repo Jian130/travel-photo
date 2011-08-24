@@ -15,6 +15,10 @@ class CommentsController < ApplicationController
   def create
     @commentable = find_commentable
     @comment = @commentable.comments.build(params[:comment])
+    
+    if @comment.save
+      redirect_to root_path
+    end
   end
 
   def edit

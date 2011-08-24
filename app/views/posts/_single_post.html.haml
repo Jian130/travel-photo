@@ -1,0 +1,8 @@
+%a{:href => post_path(@post)}
+  = image_tag @post.photos.first.image.medium
+  = @post.message
+%p 
+  Taken at:
+  = link_to @post.location.name, @post.location if @post.location
+  
+= render "comments/comment_form", :commentable => @post

@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   private
   
     def set_user_language
-      I18n.locale = current_user.profile.locale if (signin? && !current_user.profile.locale.nil?)
+      I18n.locale = current_user.profile.locale if (signin? && !current_user.profile.locale.blank? )
     end
   
 end

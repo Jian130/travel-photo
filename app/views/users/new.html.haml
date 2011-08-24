@@ -1,0 +1,27 @@
+%h3 Create a New Account with Us
+  
+= form_for @user do |f|
+  
+  = render 'shared/error_messages', :target => @user
+  
+  .field
+    = f.label :email
+    = f.text_field :email
+
+  = f.fields_for :profile do |p|
+    .field
+      = p.label :username
+      = p.text_field :username
+
+  .field
+    = f.label :password 
+    = t('option') if session[:omniauth]
+    = f.password_field :password
+
+  .field
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
+
+  .actions= f.submit
+
+= render "authentications/external_providers"

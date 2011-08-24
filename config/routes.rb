@@ -13,24 +13,31 @@ Travelphoto::Application.routes.draw do
   match '/locations/autocomplete' => 'locations#autocomplete'
 
   #scope 'users' do
-  # resource :users do #, :path => 'register'
-  #   member do
-  #     get :following, :followers
-  #   end
-  # end
+  resources :users do #, :path => 'register'
+    member do
+      get :following, :followers
+    end
+  end
   #end
+  # resources :users do
+	# get :following, :on => :member
+	# get :follwers, :on => :member
+  # end
   
-  resources :users, :only => [:index, :show]
-  resource :likes, :only => [:create]
-  resource :translations
-  resource :comments
-  resource :sessions
+  #resources :users, :only => [:index, :show, :create]
+  #resources :likes, :only => [:create]
+  resources :translations
+  #resources :comments
+  resources :sessions
   resources :locations, :only => [:show]
-  resources :posts
+  resources :posts do
+    resources :comments, :likes
+  end
   #resource :photo, :only => [:show, :destroy]
-  resource :profiles, :only => [:show, :edit, :update, :destroy]
+  resources :profiles, :only => [:show, :edit, :update, :destroy]
   
   root :to => "pages#home"
+  match "/:username" => "users#show"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

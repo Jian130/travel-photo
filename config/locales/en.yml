@@ -13,3 +13,9 @@ en-US:
     facebook: "Sign in with facebook"
     
     success: "Signed in successfully!"
+  
+  following: "following"
+  follower: "followers"
+  post: "posts"
+  submit: "Submit"
+  like: "Like it"

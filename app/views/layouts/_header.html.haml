@@ -1,0 +1,17 @@
+%header
+  /#TODO: link to logo
+  %nav
+    %ul
+      %li= link_to t('Home'),  root_path
+      - if signin?
+        %li
+          = t 'hello' 
+          =link_to current_user.email, current_user
+        %li= link_to t('Upload'), new_post_path
+        %li= link_to t('Profile'), current_user.profile
+        %li= link_to t('Settings'), edit_profile_path(current_user.profile)
+        %li= link_to t('signout'), signout_path
+      - else
+        %li= link_to t('signin'), signin_path
+        = render 'authentications/external_providers'
+        %li= link_to t('signup'), register_path

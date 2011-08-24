@@ -17,7 +17,7 @@ gem 'flash_cookie_session' # needed for uploadify
 gem 'geocoder'
 
 gem 'redis'
-
+gem 'haml'
 gem 'httparty'
 
 
@@ -48,7 +48,7 @@ group :development do
   # gem 'autotest-rails-pure'
   # gem 'autotest-fsevent'
   # gem 'autotest-growl'
-  gem 'arel', '2.1.4' # there are bugs in 2.1.5 
+  #gem 'arel', '2.1.4' # there are bugs in 2.1.5 
 end
 
 group :test do

@@ -1,0 +1,7 @@
+- @user ||= current_user
+%ul.stats
+  %li= link_to "#{@user.profile.posts_count} #{t('post')}", user_path(@user)
+
+  %li= link_to "#{@user.profile.followings_count} #{t('following')}", following_user_path(@user)
+    
+  %li= link_to "#{@user.profile.followers_count} #{t('follower')}", followers_user_path(@user)
