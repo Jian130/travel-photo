@@ -3,7 +3,7 @@
 
 en-US:
   hello: "Hello"
-  
+  home: "Home"
   signin: "Sign in"
   signup: "Sign up"
   signout: "sign out"

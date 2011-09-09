@@ -27,7 +27,14 @@ class Photo < ActiveRecord::Base
   # validate_attachment_presense  :image
   # validates_attachment_size :image, :less_than => 5.megabytes
   # validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png', 'image/pjpg', 'image/x-png']
-
+  def large_image
+    self.image.large
+  end
+  
+  def medium_image
+    self.image.medium
+  end
+  
   private
   
   def update_image_attributes

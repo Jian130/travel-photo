@@ -2,7 +2,7 @@
   - @posts.each do |p|
     %li
       %a{:href => post_path(p)}
-        = image_tag p.photos.first.image.square
+        = image_tag p.photos.first.medium_image
         = p.message
       %p 
         Taken at:

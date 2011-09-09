@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :photos
   
+  delegate :username, :to => :profile
+  
   #before_create :create_profile
   
   #TODO: insert extra information to user profile from external provider

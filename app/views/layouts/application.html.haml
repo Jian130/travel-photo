@@ -8,7 +8,8 @@
   %body
     = render "layouts/header"
     = render "layouts/flash_messages"
-    = yield
+    .container= yield
+    
     = render "layouts/footer"
 
     = debug(params) if Rails.env.development?
