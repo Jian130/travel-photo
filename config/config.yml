@@ -9,6 +9,14 @@ development:
   google_api_key: AIzaSyATtS4OiqSYep-IIGGwfzTAtTQohxOh2EU
 
 test:
+  twitter_id: SqgNeGvTGVTSbusHa98UA
+  twitter_secret: QgHbgZSNFO0qJviiMNfyI9dzfje3hr1M4pT7pGu4
+
+  facebook_id: 213149395402088
+  facebook_secret: 47c8fc981bdd75e6acfb422d3f58aa77
+  facebook_access_token: 213149395402088|72a5674af1f4a5c30adf28e7.0-605816306|vIzCXHfrFKIVvvbbehyovkQWPLQ
+
+  google_api_key: AIzaSyATtS4OiqSYep-IIGGwfzTAtTQohxOh2EU
   
 
 production: 

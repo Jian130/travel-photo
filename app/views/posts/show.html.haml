@@ -1,6 +1,37 @@
 .post
   .photos
-    - @post.photos.each do |p|
-      
+    %ul
+      - @post.photos.each do |p|
+        %li= image_tag p.medium_image
+
+.comments
+  %fieldset.comment-border
+    %legend= t('comments')
+    - @comments.each do |c|
+      .comment
+        .user-img
+        .user-name
+        .content= c.content
+        .time= time_ago_in_words(c.created_at)
+        .likes= "#{c.likes.count} #{t('likes')}"
+        .like
+          = form_for [c, Like.new] do |f|
+            = f.submit t('like')
+
+  .new-comment
+    .user-img= image_tag('icons/default_profile_5_normal.png')
+    = form_for [@post, Comment.new] do |f|
+      = f.text_field :content
+      = f.submit t('submit')
     
 .sidebar
+  .location
+  .user-profile
+    = t('seen by')
+    .follow
+    = form_for current_user.relationships.build(:followed_id => @post.user.id) do |f|
+      = f.hidden_field :followed_id
+      = f.submit t('follow')
+    
+    
+  .user-network= t('my network')

@@ -9,7 +9,7 @@
       = nav_link_to t('Upload'), new_post_path
       - if signin?
         %li.dropdown
-          %a.dropdown-toggle{:href => '#'}= current_user.username
+          = link_to current_user.username, current_user, :class => 'dropdown-toggle'
           %ul.dropdown-menu
             %li= link_to t('Profile'), current_user.profile
             %li= link_to t('Settings'), edit_profile_path(current_user.profile)

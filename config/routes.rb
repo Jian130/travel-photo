@@ -23,7 +23,8 @@ Travelphoto::Application.routes.draw do
 	# get :following, :on => :member
 	# get :follwers, :on => :member
   # end
-  
+
+  resources :relationships, :only => [:create, :destroy]
   #resources :users, :only => [:index, :show, :create]
   #resources :likes, :only => [:create]
   resources :translations
@@ -33,9 +34,11 @@ Travelphoto::Application.routes.draw do
   resources :posts do
     resources :comments, :likes
   end
+  resources :comments, :only => [:create] do
+    resources :likes
+  end
   #resource :photo, :only => [:show, :destroy]
   resources :profiles, :only => [:show, :edit, :update, :destroy]
-  
   root :to => "pages#home"
   match "/:username" => "users#show"
   
