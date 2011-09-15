@@ -4,7 +4,7 @@ class LikesController < ApplicationController
     @like = @likeable.likes.build(params[:like])
     
     if @like.save
-      return request.url
+      redirect_to :back
     end
     # if @like.save
     #   render :json => @likeable.likes.count

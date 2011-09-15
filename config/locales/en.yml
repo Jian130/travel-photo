@@ -22,6 +22,11 @@ en-US:
   like: "Like it"
   likes: "likes"
   
+  success:
+    signin: "Sign in success"
+  error:
+    signin: "invalid email and password"
+  
   date:
     formats:
       default: "%Y-%m-%d"

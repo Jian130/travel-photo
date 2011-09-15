@@ -36,7 +36,6 @@ class AuthenticationsController < ApplicationController
   end
 
   def failure
-    
     render :text => request.env["omniauth.auth"].to_yaml
   end
 end

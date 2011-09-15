@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.build(params[:comment])
     
     if @comment.save
-      redirect_to @commentable
+      redirect_to :back
     end
   end
 

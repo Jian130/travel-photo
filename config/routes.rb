@@ -1,8 +1,8 @@
 Travelphoto::Application.routes.draw do
   #TODO: change sessions url to login all the time
 
-  get "signout" => "sessions#destroy", :as => :signout
   get "signin" => "sessions#new", :as => :signin
+  get "signout" => "sessions#destroy", :as => :signout
   get "signup" => "authentications#new", :as => :signup
   get "register" => "users#new", :as => :register
 
@@ -29,7 +29,7 @@ Travelphoto::Application.routes.draw do
   #resources :likes, :only => [:create]
   resources :translations
   #resources :comments
-  resources :sessions
+  resources :sessions, :only => [:new, :create, :destroy]
   resources :locations, :only => [:show]
   resources :posts do
     resources :comments, :likes

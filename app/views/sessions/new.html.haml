@@ -1,0 +1,13 @@
+%h1 Login in page
+
+.login-form
+  = render 'authentications/external_providers'
+  = form_for(:session, :url => sessions_path) do |f|
+    .field
+      = f.label :email
+      = f.text_field :email
+    .field
+      = f.label :password
+      = f.password_field :password
+      
+    .actions= f.submit t('signin')
