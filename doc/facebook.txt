@@ -1,0 +1,50 @@
+provider: facebook
+uid: '605816306'
+credentials:
+  token: 213149395402088|72a5674af1f4a5c30adf28e7.1-605816306|zXM4-xmQNLanIeTMfoYmy80jaUk
+user_info:
+  nickname: !!null 
+  email: ryoli23@hotmail.com
+  first_name: Jian
+  last_name: Li
+  name: Jian Li
+  image: http://graph.facebook.com/605816306/picture?type=square
+  urls:
+    Facebook: http://www.facebook.com/profile.php?id=605816306
+    Website: !!null 
+extra:
+  user_hash:
+    id: '605816306'
+    name: Jian Li
+    first_name: Jian
+    last_name: Li
+    link: http://www.facebook.com/profile.php?id=605816306
+    hometown:
+      id: '106007332772985'
+      name: Shenzhen, Guangdong
+    location:
+      id: '114497808567786'
+      name: Vancouver, British Columbia
+    work:
+    - employer:
+        id: '109691365724886'
+        name: Provincial Health Services Authority
+      with:
+      - id: '822355401'
+        name: Nick Yang
+      from:
+        id: '822355401'
+        name: Nick Yang
+    gender: male
+    email: ryoli23@hotmail.com
+    timezone: -7
+    locale: en_US
+    languages:
+    - id: '106059522759137'
+      name: English
+    - id: '103088979730830'
+      name: Mandarin Chinese
+    - id: '104097829626659'
+      name: Cantonese
+    verified: true
+    updated_time: '2011-06-28T21:04:36+0000'

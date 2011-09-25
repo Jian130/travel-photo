@@ -12,17 +12,11 @@ Travelphoto::Application.routes.draw do
   match "/home" => "posts#index"
   match '/locations/autocomplete' => 'locations#autocomplete'
 
-  #scope 'users' do
-  resources :users do #, :path => 'register'
+  resources :users, :only => [:new, :show, :create] do
     member do
       get :following, :followers
     end
   end
-  #end
-  # resources :users do
-	# get :following, :on => :member
-	# get :follwers, :on => :member
-  # end
 
   resources :relationships, :only => [:create, :destroy]
   #resources :users, :only => [:index, :show, :create]

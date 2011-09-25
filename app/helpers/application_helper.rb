@@ -7,4 +7,11 @@ module ApplicationHelper
       link_to name, options
     end
   end
+  
+  def title
+    base_title = "wandereyes"
+    unless @title
+      "#{t(base_title)} | #{@title}"
+    end
+  end
 end

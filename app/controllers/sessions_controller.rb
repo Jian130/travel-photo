@@ -9,13 +9,12 @@ class SessionsController < ApplicationController
       signin(user)
       redirect_to user, :notice => t('success.signin')
     else
-      flash[:notice] = t('error.signin')
+      flash.now.alert = t('error.signin')
       render "new"
     end
   end
   
   def destroy
-    #session[:user_id] = nil
     signout
     redirect_to root_url, :notice => t('signout')
   end

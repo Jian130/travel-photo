@@ -8,10 +8,10 @@ class User < ActiveRecord::Base
   validates :email, :presence => true,
                     :length => { :in => 5..254},
                     :uniqueness => { :case_sensitive => false },
-                    :format => {:with => email_regex }
+                    :format => { :with => email_regex }
   
   validates :password, :presence => true,
-                       :length => {:in => 6..40 },
+                       :length => { :minimum => 6 },
                        :on => :create
                        #:unless => :no_password?
   
@@ -52,6 +52,11 @@ class User < ActiveRecord::Base
     Profile.decrement_counter(:followings_count, self.profile.id)
   end
   
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
+  end
   private
   
     # def create_profile

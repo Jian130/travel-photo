@@ -52,6 +52,10 @@ GEM
     execjs (1.2.4)
       multi_json (~> 1.0)
     exifr (1.0.6)
+    factory_girl (2.1.0)
+    factory_girl_rails (1.2.0)
+      factory_girl (~> 2.1.0)
+      railties (>= 3.0.0)
     faraday (0.6.1)
       addressable (~> 2.2.4)
       multipart-post (~> 1.1.0)
@@ -190,6 +194,10 @@ GEM
     uglifier (1.0.2)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    webrat (0.7.3)
+      nokogiri (>= 1.2.0)
+      rack (>= 1.0)
+      rack-test (>= 0.5.3)
 
 PLATFORMS
   ruby
@@ -201,6 +209,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails
   exifr
+  factory_girl_rails
   flash_cookie_session
   geocoder
   haml
@@ -216,3 +225,4 @@ DEPENDENCIES
   sqlite3
   turn
   uglifier
+  webrat

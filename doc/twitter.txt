@@ -1,0 +1,229 @@
+provider: twitter
+uid: '308929003'
+credentials:
+  token: 308929003-P4NbYOlrtFgE1gT4SjZcjCcvdbbp3LrkmxuoBGwT
+  secret: jgqRms1fimFpHcFCUoFZPlC6jPTYTWjolNZHIknHTo
+extra:
+  access_token: !ruby/object:OAuth::AccessToken
+    token: 308929003-P4NbYOlrtFgE1gT4SjZcjCcvdbbp3LrkmxuoBGwT
+    secret: jgqRms1fimFpHcFCUoFZPlC6jPTYTWjolNZHIknHTo
+    consumer: !ruby/object:OAuth::Consumer
+      key: SqgNeGvTGVTSbusHa98UA
+      secret: QgHbgZSNFO0qJviiMNfyI9dzfje3hr1M4pT7pGu4
+      options:
+        :signature_method: HMAC-SHA1
+        :request_token_path: /oauth/request_token
+        :authorize_path: /oauth/authenticate
+        :access_token_path: /oauth/access_token
+        :proxy: !!null 
+        :scheme: :header
+        :http_method: :post
+        :oauth_version: '1.0'
+        :site: https://api.twitter.com
+      http: !ruby/object:Net::HTTP
+        address: api.twitter.com
+        port: 443
+        curr_http_version: '1.1'
+        no_keepalive_server: false
+        close_on_empty_response: false
+        socket: !!null 
+        started: false
+        open_timeout: 30
+        read_timeout: 30
+        debug_output: !!null 
+        use_ssl: true
+        ssl_context: !ruby/object:OpenSSL::SSL::SSLContext
+          cert: !!null 
+          key: !!null 
+          client_ca: !!null 
+          ca_file: !!null 
+          ca_path: !!null 
+          timeout: !!null 
+          verify_mode: 0
+          verify_depth: !!null 
+          verify_callback: !!null 
+          options: 4095
+          cert_store: !!null 
+          extra_chain_cert: !!null 
+          client_cert_cb: !!null 
+          tmp_dh_callback: !!null 
+          session_id_context: !!null 
+          session_get_cb: !!null 
+          session_new_cb: !!null 
+          session_remove_cb: !!null 
+          servername_cb: !!null 
+        enable_post_connection_check: true
+        compression: !!null 
+        sspi_enabled: false
+        ssl_version: !!null 
+        key: !!null 
+        cert: !!null 
+        ca_file: !!null 
+        ca_path: !!null 
+        cert_store: !!null 
+        ciphers: !!null 
+        verify_mode: 0
+        verify_callback: !!null 
+        verify_depth: !!null 
+        ssl_timeout: !!null 
+        newimpl: true
+      http_method: :post
+      uri: !ruby/object:URI::HTTPS
+        scheme: https
+        user: !!null 
+        password: !!null 
+        host: api.twitter.com
+        port: 443
+        path: ''
+        query: !!null 
+        opaque: !!null 
+        registry: !!null 
+        fragment: !!null 
+        parser: !!null 
+    params:
+      :oauth_token: 308929003-P4NbYOlrtFgE1gT4SjZcjCcvdbbp3LrkmxuoBGwT
+      oauth_token: 308929003-P4NbYOlrtFgE1gT4SjZcjCcvdbbp3LrkmxuoBGwT
+      :oauth_token_secret: jgqRms1fimFpHcFCUoFZPlC6jPTYTWjolNZHIknHTo
+      oauth_token_secret: jgqRms1fimFpHcFCUoFZPlC6jPTYTWjolNZHIknHTo
+      :user_id: '308929003'
+      user_id: '308929003'
+      :screen_name: Ryo_Li
+      screen_name: Ryo_Li
+    response: !ruby/object:Net::HTTPOK
+      http_version: '1.1'
+      code: '200'
+      message: OK
+      header:
+        date:
+        - Thu, 04 Aug 2011 07:09:10 GMT
+        server:
+        - hi
+        status:
+        - 200 OK
+        x-transaction:
+        - 1312441750-20430-28682
+        x-ratelimit-limit:
+        - '350'
+        etag:
+        - ! '"915ade7f96a66133ac1a4541e5b45d92"'
+        x-frame-options:
+        - SAMEORIGIN
+        last-modified:
+        - Thu, 04 Aug 2011 07:09:10 GMT
+        x-ratelimit-remaining:
+        - '348'
+        x-runtime:
+        - '0.02145'
+        x-transaction-mask:
+        - a6183ffa5f8ca943ff1b53b5644ef114c8581777
+        content-type:
+        - application/json; charset=utf-8
+        content-length:
+        - '1780'
+        pragma:
+        - no-cache
+        x-access-level:
+        - read
+        x-ratelimit-class:
+        - api_identified
+        x-revision:
+        - DEV
+        expires:
+        - Tue, 31 Mar 1981 05:00:00 GMT
+        cache-control:
+        - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+        x-mid:
+        - 197d16c54f27f6f5c273b06660fa2f286665b220
+        x-ratelimit-reset:
+        - '1312445205'
+        set-cookie:
+        - k=70.71.141.21.1312441750067215; path=/; expires=Thu, 11-Aug-11 07:09:10
+          GMT; domain=.twitter.com
+        - guest_id=v1%3A13124417500703351; domain=.twitter.com; path=/; expires=Sat,
+          03 Aug 2013 19:09:10 GMT
+        - lang=en; path=/
+        - twid=u%3D308929003%7CsGfeAKKRQQkH1GaHzSefIl88cDg%3D; domain=.twitter.com;
+          path=/
+        - _twitter_sess=BAh7CToPY3JlYXRlZF9hdGwrCDzSn5MxAToMY3NyZl9pZCIlYmMzMmFiOTIz%250AMThjNWRiZmQ2YTVhN2M2YmY1MzJiOWU6B2lkIiVlZmU2Y2IxZWIyZTgwYzMw%250ANTg0MDM1NGNkZGY1MTRiNyIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6%250ARmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA%253D%253D--0140dcfd17cb67143ff8f25349cfcf5814e868c7;
+          domain=.twitter.com; path=/; HttpOnly
+        vary:
+        - Accept-Encoding
+        connection:
+        - close
+      body: ! '{"friends_count":17,"profile_sidebar_fill_color":"DDEEF6","protected":false,"default_profile_image":true,"lang":"en","statuses_count":1,"profile_background_tile":false,"profile_image_url":"http:\/\/a0.twimg.com\/sticky\/default_profile_images\/default_profile_5_normal.png","name":"Ryo
+        Li","verified":false,"is_translator":false,"utc_offset":null,"profile_link_color":"0084B4","followers_count":1,"screen_name":"Ryo_Li","follow_request_sent":false,"profile_sidebar_border_color":"C0DEED","location":null,"default_profile":true,"time_zone":null,"status":{"favorited":false,"in_reply_to_status_id_str":null,"place":null,"in_reply_to_screen_name":null,"in_reply_to_user_id_str":null,"contributors":null,"geo":null,"retweeted":false,"truncated":false,"coordinates":null,"text":"Testing!
+        1, 2, 3 !~~","in_reply_to_user_id":null,"retweet_count":0,"in_reply_to_status_id":null,"id_str":"79744419535929344","source":"\u003Ca
+        href=\"http:\/\/itunes.apple.com\/us\/app\/twitter\/id409789998?mt=12\" rel=\"nofollow\"\u003ETwitter
+        for Mac\u003C\/a\u003E","created_at":"Sun Jun 12 02:58:45 +0000 2011","id":79744419535929344},"following":false,"profile_use_background_image":true,"url":null,"description":null,"contributors_enabled":false,"profile_background_color":"C0DEED","id_str":"308929003","listed_count":0,"profile_background_image_url_https":"https:\/\/si0.twimg.com\/images\/themes\/theme1\/bg.png","profile_background_image_url":"http:\/\/a0.twimg.com\/images\/themes\/theme1\/bg.png","created_at":"Wed
+        Jun 01 07:16:15 +0000 2011","show_all_inline_media":false,"geo_enabled":false,"notifications":false,"profile_image_url_https":"https:\/\/si0.twimg.com\/sticky\/default_profile_images\/default_profile_5_normal.png","id":308929003,"favourites_count":0,"profile_text_color":"333333"}'
+      read: true
+      socket: !!null 
+      body_exist: true
+  user_hash:
+    friends_count: 17
+    profile_sidebar_fill_color: DDEEF6
+    protected: false
+    default_profile_image: true
+    lang: en
+    statuses_count: 1
+    profile_background_tile: false
+    profile_image_url: http://a0.twimg.com/sticky/default_profile_images/default_profile_5_normal.png
+    name: Ryo Li
+    verified: false
+    is_translator: false
+    utc_offset: !!null 
+    profile_link_color: 0084B4
+    followers_count: 1
+    screen_name: Ryo_Li
+    follow_request_sent: false
+    profile_sidebar_border_color: C0DEED
+    location: !!null 
+    default_profile: true
+    time_zone: !!null 
+    status:
+      favorited: false
+      in_reply_to_status_id_str: !!null 
+      place: !!null 
+      in_reply_to_screen_name: !!null 
+      in_reply_to_user_id_str: !!null 
+      contributors: !!null 
+      geo: !!null 
+      retweeted: false
+      truncated: false
+      coordinates: !!null 
+      text: Testing! 1, 2, 3 !~~
+      in_reply_to_user_id: !!null 
+      retweet_count: 0
+      in_reply_to_status_id: !!null 
+      id_str: '79744419535929344'
+      source: <a href="http://itunes.apple.com/us/app/twitter/id409789998?mt=12" rel="nofollow">Twitter
+        for Mac</a>
+      created_at: Sun Jun 12 02:58:45 +0000 2011
+      id: 79744419535929344
+    following: false
+    profile_use_background_image: true
+    url: !!null 
+    description: !!null 
+    contributors_enabled: false
+    profile_background_color: C0DEED
+    id_str: '308929003'
+    listed_count: 0
+    profile_background_image_url_https: https://si0.twimg.com/images/themes/theme1/bg.png
+    profile_background_image_url: http://a0.twimg.com/images/themes/theme1/bg.png
+    created_at: Wed Jun 01 07:16:15 +0000 2011
+    show_all_inline_media: false
+    geo_enabled: false
+    notifications: false
+    profile_image_url_https: https://si0.twimg.com/sticky/default_profile_images/default_profile_5_normal.png
+    id: 308929003
+    favourites_count: 0
+    profile_text_color: '333333'
+user_info:
+  nickname: Ryo_Li
+  name: Ryo Li
+  location: !!null 
+  image: http://a0.twimg.com/sticky/default_profile_images/default_profile_5_normal.png
+  description: !!null 
+  urls:
+    Website: !!null 
+    Twitter: http://twitter.com/Ryo_Li

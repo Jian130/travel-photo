@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
-  
-  def index
-    @users = User.find(:all, :include => :profile)
-  end
+
   
   def show
     #@user = User.find_by_id(params[:id], :include => :profile)

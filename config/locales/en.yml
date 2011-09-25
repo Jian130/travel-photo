@@ -21,7 +21,7 @@ en-US:
   submit: "Submit"
   like: "Like it"
   likes: "likes"
-  
+  optional: "Optional"
   success:
     signin: "Sign in success"
   error:
