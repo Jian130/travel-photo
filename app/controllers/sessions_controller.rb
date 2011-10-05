@@ -3,10 +3,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_email(params[:session][:email])
-            
-    if user && user.authenticate(params[:session][:password])   
-      signin(user)
+    user = User.find_by_email(params[:email])
+    if user && user.authenticate(params[:password])
+      if params[:remember_me]
+        signin_remember(user)
+      else
+        signin(user)
+      end
       redirect_to user, :notice => t('success.signin')
     else
       flash.now.alert = t('error.signin')

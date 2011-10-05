@@ -1,4 +1,6 @@
 Travelphoto::Application.routes.draw do
+  get "password_resets/new"
+
   #TODO: change sessions url to login all the time
 
   get "signin" => "sessions#new", :as => :signin

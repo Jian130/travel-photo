@@ -19,6 +19,7 @@ gem 'geocoder'
 gem 'redis'
 gem 'haml'
 gem 'httparty'
+#gem 'sorcery' #jian
 
 
 # Gems used only for assets and not required

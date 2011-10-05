@@ -2,12 +2,16 @@
 
 .login-form
   = render 'authentications/external_providers'
-  = form_for(:session, :url => sessions_path) do |f|
+  = form_tag sessions_path do
     .field
-      = f.label :email
-      = f.text_field :email
+      = label_tag :email
+      = text_field_tag :email
     .field
-      = f.label :password
-      = f.password_field :password
+      = label_tag :password
+      = password_field_tag :password
+    .field
+      = label_tag :remeber_me
+      = check_box_tag :remember_me
       
-    .actions= f.submit t('signin')
+    .actions
+      = submit_tag t('signin')

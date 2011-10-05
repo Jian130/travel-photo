@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   
   has_secure_password
   
+  before_create { generate_token(:auth_token) }
+  
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   validates :email, :presence => true,
@@ -14,7 +16,6 @@ class User < ActiveRecord::Base
                        :length => { :minimum => 6 },
                        :on => :create
                        #:unless => :no_password?
-  
   has_one :profile
   has_many :authentications
   has_many :posts
@@ -52,13 +53,20 @@ class User < ActiveRecord::Base
     Profile.decrement_counter(:followings_count, self.profile.id)
   end
   
-  def generate_token(column)
-    begin
-      self[column] = SecureRandom.urlsafe_base64
-    end while User.exists?(column => self[column])
+  def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!
+    UserMailer.password_reset(self).deliver
   end
-  private
   
+  private
+    
+    def generate_token(column)
+      begin
+        self[column] = SecureRandom.urlsafe_base64
+      end while User.exists?(column => self[column])
+    end
     # def create_profile
     #   self.build_profile
     # end
