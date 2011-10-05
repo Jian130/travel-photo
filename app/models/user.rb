@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
   
   delegate :username, :to => :profile
   
+  
   #TODO: insert extra information to user profile from external provider
   def apply_omniauth(omniauth)
     self.email = omniauth['user_info']['email'] if email.blank?
