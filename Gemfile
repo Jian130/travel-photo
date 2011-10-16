@@ -8,7 +8,7 @@ gem 'rails', '3.1.0'
 gem 'sqlite3'
 #gem 'devise'
 gem 'omniauth'
-gem 'cancan'
+gem 'cancan', '1.6.7'
 
 gem 'mini_magick'
 gem 'exifr'
@@ -42,7 +42,7 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :development do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '2.6.1'
   gem 'annotate'
   gem "arel"
   # gem 'autotest'
@@ -55,8 +55,8 @@ end
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
-  gem 'rspec-rails'
-  gem 'spork'
+  gem 'rspec-rails', '2.6.1'
+  gem 'spork', '0.9.0.rc8'
   gem 'factory_girl_rails'
   gem 'webrat'
 end

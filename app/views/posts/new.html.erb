@@ -56,7 +56,7 @@ $(document).ready(function() {
 </script>
 <input id="file_upload" name="file_upload" type="file" />
 <%= form_for @post do |f| -%>
-	<%= image_tag "upload-default.png", {:id => 'upload-image' } %>
+  <%= image_tag "upload-default.png", {:id => 'upload-image' } %>
 	<%= hidden_field_tag :attachment %>
 	<%= f.text_field :message %>
 	<%= text_field_tag :location %>

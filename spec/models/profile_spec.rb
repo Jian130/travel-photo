@@ -1,5 +1,19 @@
 require 'spec_helper'
 
 describe Profile do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before( :each ) do
+    @user = User.create!(
+      :email => "test@gmail.com",
+      :password => "testpwd",
+      :password_confirmation => "testpwd")
+    @attr = { :username => "test", :first_name => "ftest", :last_name => "ltest" }
+  end
+
+  describe "creation" do
+
+    it "should create a Profile" do
+      @user.create_profile!( @attr )
+    end
+
+  end
 end
